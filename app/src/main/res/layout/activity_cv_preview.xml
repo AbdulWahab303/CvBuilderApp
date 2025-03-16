@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    tools:context=".cvPreview"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#2E364D"
+        android:padding="20dp">
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            />
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="Full Name"
+            android:layout_below="@id/profileImage"
+            android:layout_centerHorizontal="true"
+            />
+
+        <!-- Contact Details -->
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tvName"
+            android:text="Email: example@example.com" />
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tvEmail"
+            android:text="Phone: +1234567890" />
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_below="@id/tvPhone"
+            android:layout_centerHorizontal="true"
+            android:text="Address: Your Address" />
+
+        <!-- Summary Section -->
+        <TextView
+            android:id="@+id/tvSummaryLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/tvAddress"
+            android:text="Summary" />
+
+        <TextView
+            android:id="@+id/tvSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_below="@id/tvSummaryLabel"
+            android:text="Your professional summary goes here" />
+
+        <!-- Education -->
+        <TextView
+            android:id="@+id/tvEducationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/tvSummary"
+            android:text="Education" />
+
+        <TextView
+            android:id="@+id/tvEducation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_below="@id/tvEducationLabel"
+            android:text="Institute: Your Institute Name\nScore: Your Score" />
+
+        <!-- Experience -->
+        <TextView
+            android:id="@+id/tvExperienceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_below="@id/tvEducation"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:text="Experience" />
+
+        <TextView
+            android:id="@+id/tvExperience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_below="@id/tvExperienceLabel"
+            android:text="Company: Your Company Name\nDuration: From Date - To Date" />
+
+        <!-- Certifications -->
+        <TextView
+            android:id="@+id/tvCertificationsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/tvExperience"
+            android:layout_marginTop="15dp"
+            android:text="Certifications" />
+
+        <LinearLayout
+            android:id="@+id/certificationsContainer"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/tvCertificationsLabel"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <!-- References -->
+        <TextView
+            android:id="@+id/tvReferencesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/certificationsContainer"
+            android:text="References" />
+
+        <LinearLayout
+            android:id="@+id/referencesContainer"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/tvReferencesLabel"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </RelativeLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cvShare"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:layout_marginEnd="20dp"
+            />
+    </LinearLayout>
+</LinearLayout>

@@ -1,11 +1,14 @@
 package com.example.cvbuilderapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.TypedValue;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +23,10 @@ import java.util.List;
 public class References extends AppCompatActivity {
 
     Button btnAddRef,btnRemoveRef,btnRefCancel,btnRefSave;
+    TextView tvRefLogoText;
+    Handler handler=new Handler();
+    int index=0;
+    String text="References";
     LinearLayout refContainer;
     ArrayList<EditText>editTextList=new ArrayList<>();
 
@@ -35,6 +42,7 @@ public class References extends AppCompatActivity {
             return insets;
         });
         init();
+        startTypingAnimation();
         btnAddRef.setOnClickListener((v)->{
            addRef();
         });
@@ -53,28 +61,46 @@ public class References extends AppCompatActivity {
         });
     }
 
-    private void saveRef(){
-        ArrayList<ArrayList<String>> refs = new ArrayList<>();
+    private void saveRef() {
+        ArrayList<String> refs = new ArrayList<>();
+        int totalFields = editTextList.size();
 
-        for (int i = 0; i < 5; i++) {
-            refs.add(new ArrayList<>());
+        if (totalFields % 5 != 0) {
+            Toast.makeText(this, "Each reference must have 5 fields filled!", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        int fieldIndex = 0;
-        for (EditText editText : editTextList) {
-            String refText = editText.getText().toString().trim();
-            if (!refText.isEmpty()) {
-                refs.get(fieldIndex % 5).add(refText); // Distribute among 5 fields
+        for (int i = 0; i < totalFields; i += 5) {
+            boolean isValidReference = true;
+            StringBuilder refEntry = new StringBuilder();
+
+            for (int j = 0; j < 5; j++) {
+                String refText = editTextList.get(i + j).getText().toString().trim();
+
+                if (refText.isEmpty()) {
+                    isValidReference = false;
+                    break;
+                }
+
+                refEntry.append(refText);
+                if (j < 4) refEntry.append(" | ");
             }
-            fieldIndex++;
+
+            if (isValidReference) {
+                refs.add(refEntry.toString());
+            }
         }
 
         if (!refs.isEmpty()) {
-            Toast.makeText(this, "References Saved: " + refs, Toast.LENGTH_LONG).show();
+            Intent resultIntent = new Intent();
+            resultIntent.putStringArrayListExtra("references", refs);
+            setResult(RESULT_OK, resultIntent);
+            finish();
         } else {
-            Toast.makeText(this, "No references entered!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No complete references entered!", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void removeRef(){
         int childCount=refContainer.getChildCount();
@@ -146,5 +172,19 @@ public class References extends AppCompatActivity {
         btnRemoveRef = findViewById(R.id.btnRemoveRef);
         btnRefCancel = findViewById(R.id.btnRefCancel);
         btnRefSave = findViewById(R.id.btnRefSave);
+        tvRefLogoText=findViewById(R.id.tvRefLogoText);
+    }
+
+    private void startTypingAnimation() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (index < text.length()) {
+                    tvRefLogoText.setText(text.substring(0, index + 1));
+                    index++;
+                    handler.postDelayed(this, 100);
+                }
+            }
+        }, 500);
     }
 }

@@ -22,11 +22,11 @@ import java.util.ArrayList;
 public class Home extends AppCompatActivity {
 
     Uri ProfileImage;
-    Button btnProfilePicture, personalDetails, summary, education, experience, certifications, ref;
+    Button btnProfilePicture, personalDetails, summary, education, experience, certifications, ref,cvPreview;
     TextView tvHomeScreenLogoText;
     String text = "Builder";
     String name, email, address, phone, tvSummary, instName, score, companyName, fromDate, toDate;
-    ArrayList<String>resultCertifications=new ArrayList<>();
+    ArrayList<String> resultCertifications,resultRef;
     int index = 0;
     Handler handler = new Handler();
 
@@ -47,6 +47,25 @@ public class Home extends AppCompatActivity {
         init();
         startTypingAnimation();
         buttonsCalled();
+    }
+
+    private void validateFields() {
+        boolean allFilled = ProfileImage != null &&
+                name != null && !name.isEmpty() &&
+                email != null && !email.isEmpty() &&
+                address != null && !address.isEmpty() &&
+                phone != null && !phone.isEmpty() &&
+                tvSummary != null && !tvSummary.isEmpty() &&
+                instName != null && !instName.isEmpty() &&
+                score != null && !score.isEmpty() &&
+                companyName != null && !companyName.isEmpty() &&
+                fromDate != null && !fromDate.isEmpty() &&
+                toDate != null && !toDate.isEmpty() &&
+                resultCertifications != null && !resultCertifications.isEmpty() &&
+                resultRef != null && !resultRef.isEmpty();
+
+        // Enable button if all fields are filled
+        cvPreview.setEnabled(allFilled);
     }
 
     private void buttonsCalled() {
@@ -78,6 +97,24 @@ public class Home extends AppCompatActivity {
             Intent i = new Intent(this, References.class);
             getReferences.launch(i);
         });
+        cvPreview.setOnClickListener((v)->{
+            Intent i=new Intent(this,cvPreview.class);
+
+            i.putExtra("Name", name);
+            i.putExtra("Email", email);
+            i.putExtra("Address", address);
+            i.putExtra("Phone", phone);
+            i.putExtra("TvSummary", tvSummary);
+            i.putExtra("InstName", instName);
+            i.putExtra("Score", score);
+            i.putExtra("CompanyName", companyName);
+            i.putExtra("FromDate", fromDate);
+            i.putExtra("ToDate", toDate);
+            i.putStringArrayListExtra("ResultCertifications", resultCertifications);
+            i.putStringArrayListExtra("ResultRef", resultRef);
+            i.putExtra("ProfileImage",ProfileImage.toString());
+            startActivity(i);
+        });
     }
 
     private void init() {
@@ -89,6 +126,8 @@ public class Home extends AppCompatActivity {
         certifications = findViewById(R.id.certifications);
         ref = findViewById(R.id.ref);
         tvHomeScreenLogoText = findViewById(R.id.tvHomeScreenLogoText);
+        cvPreview=findViewById(R.id.cvPreview);
+        cvPreview.setEnabled(false);
 
 
         getProfileImageLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -102,6 +141,7 @@ public class Home extends AppCompatActivity {
                     } else {
                         Toast.makeText(this, "No Image Selected", Toast.LENGTH_SHORT).show();
                     }
+                    validateFields();
                 });
 
         getPersonalDetails = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -116,6 +156,7 @@ public class Home extends AppCompatActivity {
                     } else {
                         Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
                     }
+                    validateFields();
                 });
 
         getSummary = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -126,6 +167,7 @@ public class Home extends AppCompatActivity {
                     } else {
                         Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
                     }
+                    validateFields();
                 });
 
         getEducation = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -137,6 +179,7 @@ public class Home extends AppCompatActivity {
                     } else {
                         Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
                     }
+                    validateFields();
                 });
 
         getExperience = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -149,6 +192,7 @@ public class Home extends AppCompatActivity {
                     } else {
                         Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
                     }
+                    validateFields();
                 });
 
         getCertifications = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -159,13 +203,20 @@ public class Home extends AppCompatActivity {
                     } else {
                         Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
                     }
+                    validateFields();
 
                 });
 
         getReferences = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                 result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        resultRef=result.getData().getStringArrayListExtra("references");
+                        Toast.makeText(this, "Selected Successfully!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
+                    }
+                    validateFields();
                 });
-
     }
 
 

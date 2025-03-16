@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView logo,logoName,logoIcon;
     Animation left_to_right,right_to_left,popup;
     TextView tvLogoText;
-    String logoText="Button";
+    String logoText="Builder";
     int index=0;
 
     Handler handler=new Handler();

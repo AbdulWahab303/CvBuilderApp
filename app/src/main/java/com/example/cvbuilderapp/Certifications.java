@@ -78,26 +78,6 @@ public class Certifications extends AppCompatActivity {
         });
 
 
-        btnCertSave.setOnClickListener((v) -> {
-            ArrayList<String> certs = new ArrayList<>();
-            for (EditText editText : editTextList) {
-                String certText = editText.getText().toString().trim();
-                if (!certText.isEmpty()) {
-                    certs.add(certText);
-                }
-            }
-
-            if (!certs.isEmpty()) {
-
-                Toast.makeText(this, "Certifications Saved: " + certs, Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, "No certifications entered!", Toast.LENGTH_SHORT).show();
-            }
-
-
-        });
-
-
     }
 
     private void saveCertifications() {

@@ -3,10 +3,12 @@ package com.example.cvbuilderapp;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +23,10 @@ public class Experience extends AppCompatActivity {
 
 
     EditText etFromDate,etToDate,etCompany;
+    TextView tvExperienceLogoText;
+    Handler handler=new Handler();
+    String text="Experience";
+    int index=0;
     CheckBox cbPresent;
     Button btnExperienceCancel,btnExperienceSave;
 
@@ -37,6 +43,7 @@ public class Experience extends AppCompatActivity {
             return insets;
         });
         init();
+        startTypingAnimation();
 
         btnExperienceSave.setOnClickListener((v) -> {
             saveExperience();
@@ -114,5 +121,18 @@ public class Experience extends AppCompatActivity {
         etFromDate = findViewById(R.id.etFromDate);
         etToDate = findViewById(R.id.etToDate);
         cbPresent = findViewById(R.id.cbPresent);
+        tvExperienceLogoText=findViewById(R.id.tvExperienceLogoText);
+    }
+    private void startTypingAnimation() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (index < text.length()) {
+                    tvExperienceLogoText.setText(text.substring(0, index + 1));
+                    index++;
+                    handler.postDelayed(this, 100);
+                }
+            }
+        }, 500);
     }
 }

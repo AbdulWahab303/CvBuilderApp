@@ -122,6 +122,19 @@
             android:backgroundTint="@color/white"
             android:textColor="#2E364D"
             android:elevation="5dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <Button
+            android:layout_below="@id/ref"
+            android:id="@+id/cvPreview"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:text="@string/cv_preview"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:elevation="5dp"
             />
 
 

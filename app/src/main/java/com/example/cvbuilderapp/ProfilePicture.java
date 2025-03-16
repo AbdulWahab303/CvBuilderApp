@@ -67,6 +67,7 @@ public class ProfilePicture extends AppCompatActivity {
 
         imagePickLauncher=registerForActivityResult(new ActivityResultContracts.GetContent(),v->{
             if(v!=null){
+                getContentResolver().takePersistableUriPermission(v,Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 selectedImage=v;
                 ivPreviewImage.setImageURI(v);
             }

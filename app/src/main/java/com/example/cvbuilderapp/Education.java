@@ -2,8 +2,10 @@ package com.example.cvbuilderapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +18,10 @@ public class Education extends AppCompatActivity {
 
     Button btnEducationCancel,btnEducationSave;
     EditText etInstName,etScore;
+    Handler handler=new Handler();
+    String text="Education";
+    int index=0;
+    TextView tvEducationLogoText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,7 @@ public class Education extends AppCompatActivity {
 
 
         init();
+        startTypingAnimation();
 
         btnEducationSave.setOnClickListener((v) -> {
             String instName = etInstName.getText().toString().trim();
@@ -60,5 +67,18 @@ public class Education extends AppCompatActivity {
         btnEducationSave = findViewById(R.id.btnEducationSave);
         etInstName = findViewById(R.id.etInstName);
         etScore = findViewById(R.id.etScore);
+        tvEducationLogoText=findViewById(R.id.tvEducationLogoText);
+    }
+    private void startTypingAnimation() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (index < text.length()) {
+                    tvEducationLogoText.setText(text.substring(0, index + 1));
+                    index++;
+                    handler.postDelayed(this, 100);
+                }
+            }
+        }, 500);
     }
 }

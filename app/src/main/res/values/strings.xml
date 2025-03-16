@@ -34,4 +34,7 @@
     <string name="certificationsHeading">Certifications</string>
     <string name="certDetails">Details</string>
     <string name="image_preview">Image Preview</string>
+    <string name="cv_preview">Cv Preview</string>
+    <string name="cvshare">cvShare</string>
+    <string name="cvShare">Share</string>
 </resources>
