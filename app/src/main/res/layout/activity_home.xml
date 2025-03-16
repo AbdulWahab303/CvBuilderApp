@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Home">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2E364D"
+        >
+        <ImageView
+            android:id="@+id/HomeScreenLogo"
+            android:layout_marginTop="20dp"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_name"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_marginTop="-20dp"
+            android:id="@+id/tvHomeScreenLogoText"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/HomeScreenLogo"
+            android:textSize="35sp"
+            android:textAlignment="center"
+            />
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/tvHomeScreenLogoText"
+            android:id="@+id/btnProfilePicture"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:text="@string/profile_picture"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:elevation="5dp"
+            android:layout_marginBottom="10dp"
+            />
+        <Button
+            android:layout_below="@id/btnProfilePicture"
+            android:id="@+id/personalDetails"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:text="@string/personal_details"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:elevation="5dp"
+            android:layout_marginBottom="10dp"
+
+            />
+        <Button
+            android:layout_below="@id/personalDetails"
+            android:id="@+id/summary"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:text="@string/summary"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:elevation="5dp"
+            android:layout_marginBottom="10dp"
+
+            />
+        <Button
+            android:layout_below="@id/summary"
+            android:id="@+id/education"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:text="@string/education"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:elevation="5dp"
+            android:layout_marginBottom="10dp"
+
+            />
+        <Button
+            android:layout_below="@id/education"
+            android:id="@+id/experience"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:text="@string/experience"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:elevation="5dp"
+            android:layout_marginBottom="10dp"
+
+            />
+        <Button
+            android:layout_below="@id/experience"
+            android:id="@+id/certifications"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:text="@string/certifications"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:elevation="5dp"
+            android:layout_marginBottom="10dp"
+
+            />
+        <Button
+            android:layout_below="@id/certifications"
+            android:id="@+id/ref"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:text="@string/references"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:elevation="5dp"
+            />
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

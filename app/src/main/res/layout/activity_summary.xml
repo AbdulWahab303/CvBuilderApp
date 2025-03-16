@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Summary">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2E364D"
+        >
+
+        <ImageView
+            android:id="@+id/summarySectionLogo"
+            android:layout_marginTop="20dp"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_name"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_marginTop="-20dp"
+            android:id="@+id/tvSummaryLogoText"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/summarySectionLogo"
+            android:textSize="35sp"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:id="@+id/tvSummary"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:text="@string/summary_label"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_below="@id/tvSummaryLogoText"
+            android:layout_marginStart="20dp"
+
+            />
+
+        <EditText
+            android:id="@+id/etSummary"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/tvSummary"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edittext_bg"
+            android:hint="@string/enter_summary"
+            android:textColorHint="@color/white"
+            android:gravity="top|start"
+            android:padding="10dp"
+            android:inputType="textMultiLine"
+            android:minLines="5"
+            android:maxLines="10"
+            android:scrollbars="vertical"
+            />
+
+
+
+        <Button
+            android:id="@+id/btnSummarySave"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+
+            />
+
+        <Button
+            android:id="@+id/btnSummaryCancel"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_toEndOf="@+id/btnSummarySave"
+            android:layout_marginStart="30dp"
+            />
+
+
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

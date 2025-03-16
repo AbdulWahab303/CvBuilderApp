@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Education">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2E364D"
+        >
+
+        <ImageView
+            android:id="@+id/educationSectionLogo"
+            android:layout_marginTop="20dp"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_name"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_marginTop="-20dp"
+            android:id="@+id/tvEducationLogoText"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/educationSectionLogo"
+            android:textSize="35sp"
+            android:textAlignment="center"
+            />
+
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:id="@+id/etInstName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/tvEducationLogoText"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/instituion_name"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:fontFamily="sans-serif"
+            android:background="@drawable/edittext_bg"
+            android:inputType="text"
+            />
+
+        <EditText
+            android:id="@+id/etScore"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/etInstName"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/score"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:fontFamily="sans-serif"
+            android:background="@drawable/edittext_bg"
+            android:inputType="numberDecimal"
+            />
+
+
+        <Button
+            android:id="@+id/btnEducationSave"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+
+            />
+
+        <Button
+            android:id="@+id/btnEducationCancel"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_toEndOf="@+id/btnEducationSave"
+            android:layout_marginStart="30dp"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

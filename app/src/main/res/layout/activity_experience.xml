@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Experience">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2E364D"
+        >
+
+        <ImageView
+            android:id="@+id/experienceSectionLogo"
+            android:layout_marginTop="20dp"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_name"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_marginTop="-20dp"
+            android:id="@+id/tvExperienceLogoText"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/experienceSectionLogo"
+            android:textSize="35sp"
+            android:textAlignment="center"
+            />
+
+
+        <TextView
+            android:id="@+id/tvCompany"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/tvExperienceLogoText"
+            android:text="@string/company"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginStart="25dp"
+            />
+        <EditText
+            android:id="@+id/etCompany"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/tvCompany"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/enter_company_name"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:fontFamily="sans-serif"
+            android:background="@drawable/edittext_bg"
+            android:inputType="text"
+            />
+
+
+        <TextView
+            android:id="@+id/tvFromDate"
+            android:layout_width="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/etCompany"
+            android:text="@string/from_date"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginStart="25dp"/>
+
+        <EditText
+            android:id="@+id/etFromDate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/tvFromDate"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/select_from_date"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_bg"
+            android:focusable="false"/>
+
+        <!-- To Date -->
+        <TextView
+            android:id="@+id/tvToDate"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/etFromDate"
+            android:text="@string/to_date"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginStart="25dp"/>
+
+        <EditText
+            android:id="@+id/etToDate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/tvToDate"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/select_to_date"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_bg"
+            android:focusable="false"/>
+
+        <CheckBox
+            android:id="@+id/cbPresent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etToDate"
+            android:layout_marginStart="30dp"
+            android:text="@string/currently_working_here"
+            android:textColor="@color/white"/>
+
+
+        <Button
+            android:id="@+id/btnExperienceSave"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+
+            />
+
+        <Button
+            android:id="@+id/btnExperienceCancel"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:backgroundTint="@color/white"
+            android:textColor="#2E364D"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_toEndOf="@+id/btnExperienceSave"
+            android:layout_marginStart="30dp"
+            />
+
+
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
